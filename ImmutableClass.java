@@ -15,7 +15,7 @@ public final class ImmutableClass {
         this.fieldOne = fieldOne;
         this.fieldTwo = fieldTwo;
         this.fieldThree = fieldThree;
-        this.fieldFour = new Date(fieldFour.getTime()); //new instance for mutable objects
+        this.fieldFour = (Date) fieldFour.clone();
     }
 
     public int getFieldOne() {
@@ -31,6 +31,6 @@ public final class ImmutableClass {
     }
 
     public Date getFieldFour() {
-        return new Date(fieldFour.getTime()); //new instance for mutable objects
+        return fieldFour;
     }
 }
